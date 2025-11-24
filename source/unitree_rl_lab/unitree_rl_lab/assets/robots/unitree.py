@@ -396,7 +396,7 @@ UNITREE_G1_23DOF_CFG = UnitreeArticulationCfg(
 
 UNITREE_G1_29DOF_CFG = UnitreeArticulationCfg(
     spawn=UnitreeUrdfFileCfg(
-        asset_path=f"{UNITREE_ROS_DIR}/robots/g1_description/g1_29dof.urdf",
+        asset_path=f"{UNITREE_ROS_DIR}/robots/g1_description/g1_29dof_lock_waist.urdf",
     ),
     # spawn=UnitreeUsdFileCfg(
     #     usd_path=f"{UNITREE_MODEL_DIR}/G1/29dof/usd/g1_29dof_rev_1_0/g1_29dof_rev_1_0.usd",
@@ -452,8 +452,8 @@ UNITREE_G1_29DOF_CFG = UnitreeArticulationCfg(
                 ".*_elbow_.*",
                 ".*_wrist_roll.*",
                 ".*_ankle_.*",
-                "waist_roll_joint",
-                "waist_pitch_joint",
+                # "waist_roll_joint",
+                # "waist_pitch_joint",
             ],
             effort_limit_sim=25,
             velocity_limit_sim=37,
@@ -463,7 +463,7 @@ UNITREE_G1_29DOF_CFG = UnitreeArticulationCfg(
                 ".*_elbow_.*": 1.0,
                 ".*_wrist_roll.*": 1.0,
                 ".*_ankle_.*": 2.0,
-                "waist_.*_joint": 5.0,
+                # "waist_.*_joint": 5.0,
             },
             armature=0.01,
         ),
@@ -490,8 +490,8 @@ UNITREE_G1_29DOF_CFG = UnitreeArticulationCfg(
         "right_ankle_pitch_joint",
         "right_ankle_roll_joint",
         "waist_yaw_joint",
-        "waist_roll_joint",
-        "waist_pitch_joint",
+        # "waist_roll_joint",
+        # "waist_pitch_joint",
         "left_shoulder_pitch_joint",
         "left_shoulder_roll_joint",
         "left_shoulder_yaw_joint",

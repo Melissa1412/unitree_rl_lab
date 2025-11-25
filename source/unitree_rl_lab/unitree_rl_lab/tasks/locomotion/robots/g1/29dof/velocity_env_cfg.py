@@ -132,10 +132,10 @@ class EventCfg:
     )
 
     joint_parameters = EventTerm(
-        func=mdp.randomize_joint_parameterss,
+        func=mdp.randomize_joint_parameters,
         mode="startup",
         params={
-            "asset_cfg": SceneEntityCfg("robot", body_names=".*"),
+            "asset_cfg": SceneEntityCfg("robot", joint_names=".*"),
             "friction_distribution_params": (0.9, 1.1),
             "armature_distribution_params": (0.9, 1.1),
             "lower_limit_distribution_params": (0.9, 1.1),

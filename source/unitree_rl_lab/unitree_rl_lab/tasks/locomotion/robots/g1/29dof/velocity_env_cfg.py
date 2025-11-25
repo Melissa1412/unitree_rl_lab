@@ -111,14 +111,47 @@ class EventCfg:
         },
     )
 
+    com = EventTerm(
+        func=mdp.randomize_rigid_body_com,
+        mode="startup",
+        params={
+            "asset_cfg": SceneEntityCfg("robot", body_names=".*"),
+            "com_range": {"x": (-0.05, 0.05), "y":(-0.05, 0.05), "z": (-0.05, 0.05)}
+        }
+    )
+
+    actuator_gain = EventTerm(
+        func=mdp.randomize_actuator_gains,
+        mode="startup",
+        params={
+            "asset_cfg": SceneEntityCfg("robot", body_names=".*"),
+            "stiffness_distribution_params": (0.9, 1.1),
+            "damping_distribution_params": (0.9, 1.1),
+            "operation": "scale"
+        }
+    )
+
+    joint_parameters = EventTerm(
+        func=mdp.randomize_joint_parameterss,
+        mode="startup",
+        params={
+            "asset_cfg": SceneEntityCfg("robot", body_names=".*"),
+            "friction_distribution_params": (0.9, 1.1),
+            "armature_distribution_params": (0.9, 1.1),
+            "lower_limit_distribution_params": (0.9, 1.1),
+            "upper_limit_distribution_params": (0.9, 1.1),
+            "operation": "scale"
+        }
+    )
+
     # reset
     base_external_force_torque = EventTerm(
         func=mdp.apply_external_force_torque,
         mode="reset",
         params={
             "asset_cfg": SceneEntityCfg("robot", body_names="torso_link"),
-            "force_range": (0.0, 0.0),
-            "torque_range": (-0.0, 0.0),
+            "force_range": (0.0, 50.0),
+            "torque_range": (0.0, 50.0),
         },
     )
 
@@ -142,8 +175,8 @@ class EventCfg:
         func=mdp.reset_joints_by_scale,
         mode="reset",
         params={
-            "position_range": (1.0, 1.0),
-            "velocity_range": (-1.0, 1.0),
+            "position_range": (0.9, 1.1),
+            "velocity_range": (-1.1, 1.1),
         },
     )
 

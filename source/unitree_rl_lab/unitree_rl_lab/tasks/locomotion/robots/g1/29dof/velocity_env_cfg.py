@@ -115,7 +115,7 @@ class EventCfg:
         func=mdp.randomize_rigid_body_com,
         mode="startup",
         params={
-            "asset_cfg": SceneEntityCfg("robot", body_names=".*"),
+            "asset_cfg": SceneEntityCfg("robot", body_names="torso_link"),
             "com_range": {"x": (-0.05, 0.05), "y":(-0.05, 0.05), "z": (-0.05, 0.05)}
         }
     )
@@ -150,8 +150,8 @@ class EventCfg:
         mode="reset",
         params={
             "asset_cfg": SceneEntityCfg("robot", body_names="torso_link"),
-            "force_range": (0.0, 50.0),
-            "torque_range": (0.0, 50.0),
+            "force_range": (-50.0, 50.0),
+            "torque_range": (-50.0, 50.0),
         },
     )
 

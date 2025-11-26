@@ -236,7 +236,7 @@ class ObservationsCfg:
         # gait_phase = ObsTerm(func=mdp.gait_phase, params={"period": 0.8})
 
         def __post_init__(self):
-            self.history_length = 5
+            self.history_length = 1
             self.enable_corruption = True
             self.concatenate_terms = True
 
